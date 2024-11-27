@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload and Prediction</title>
+</head>
+<body>
+    <h1>Upload an Image for Prediction</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+
+    {% if predictions %}
+        <h2>Predictions:</h2>
+        <ul>
+            {% for class_name, probability in predictions.items %}
+                <li>{{ class_name }}: {{ probability|floatformat:2 }}</li>
+            {% endfor %}
+        </ul>
+        <h3>Highest Probability:</h3>
+        <p>
+            Class: <strong>{{ highest_class }}</strong><br>
+            Probability: <strong>{{ highest_probability|floatformat:2 }}</strong>
+        </p>
+    {% endif %}
+</body>
+</html>
