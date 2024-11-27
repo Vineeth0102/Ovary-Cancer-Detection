@@ -4,7 +4,7 @@ from tensorflow.keras.models import load_model
 
 # Path to your saved model
 
-model_path = 'New_Test_model.keras'
+model_path = './myproject/imageapp/New_Test_model.keras'
 
 
 
@@ -22,7 +22,7 @@ from tensorflow.keras.preprocessing.image import load_img, img_to_array
 
 # Path to your image
 
-image_path = '71.JPG'
+image_path = '25.JPG'
 
 
 
