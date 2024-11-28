@@ -46,7 +46,7 @@ footer {
     color: white;
     text-align: center;
     padding: 1rem;
-    position: fixed;
+    /* position: fixed; */
     bottom: 0;
     width: 100%;
 }
@@ -59,6 +59,14 @@ h1, h2, h3 {
 /* Container for the whole page */
 .container {
     max-width: 900px;
+    margin: 0 auto;
+    /* background: #fff; */
+    min-height: 100vh;
+    padding: 40px;
+    border-radius: 10px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+}
+.container-upload {
     margin: 0 auto;
     background: #fff;
     padding: 40px;
@@ -139,3 +147,52 @@ button:hover {
         font-size: 14px;
     }
 } 
+
+.mail-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.login-form input[type="email"], .login-form input[type="password"] {
+    margin-bottom: 15px;
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form label {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.register-form input[type="email"], .register-form input[type="password"], .register-form input[type="text"] {
+    margin-bottom: 15px;
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-form label {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.register-form ul {
+    padding: 20px;
+}
