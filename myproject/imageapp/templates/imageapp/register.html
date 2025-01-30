@@ -9,6 +9,12 @@
         Sign up to access amazing features.
     </p>
 
+    {% if form.non_field_errors %}
+    <div style="color: red; margin-bottom: 15px; text-align: center;">
+        {{ form.non_field_errors }}
+    </div>
+    {% endif %}
+
     <form method="post" style="margin-bottom: 15px;" class="register-form">
         {% csrf_token %}
         <div style="margin-bottom: 15px; padding: 10px;">

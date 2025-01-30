@@ -34,9 +34,26 @@ def register(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
-            user = form.save()
-            login(request, user)
-            return redirect('home')
+            try:
+                user = form.save(commit=False)
+                # Generate a unique username based on email
+                base_username = user.email.split('@')[0]
+                username = base_username
+                counter = 1
+                
+                # Keep trying until we find a unique username
+                while CustomUser.objects.filter(username=username).exists():
+                    username = f"{base_username}{counter}"
+                    counter += 1
+                
+                user.username = username
+                user.save()
+                
+                login(request, user)
+                return redirect('home')
+            except Exception as e:
+                print(f'Error registering user: {str(e)}')
+                form.add_error(None, 'Registration failed. Please try again.')
     else:
         form = RegistrationForm()
     return render(request, 'imageapp/register.html', {'form': form})
